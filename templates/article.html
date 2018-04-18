@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="panel-body article">
+        <h1>{{ artcile.title }}</h1>
+        {{ artcile.content }}
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="articles col-md-8">
+                <div class="panel-title">
+                    {{ answer_list|count }}个回答
+                    <a href="{{ url_for('question.add_answer', id=artcile.id) }}">增加回答</a>
+                </div>
+
+                <div class="blog-post">
+                    {% for answer in answer_list %}
+                        <div class="answer panel-body">
+                            <div class="author-info">
+                                <div class="Avatar">
+                                    <img class="img-circle" src='{{ answer.author.img_url }}'>
+                                </div>
+                                <h3> {{ answer.author.name }}</h3>
+                            </div>
+                            <h1> {{ answer.title }}</h1>
+
+                            <div class="answer-content">
+                                <h2>{{ answer.content }}</h2>
+                                <a href="{{ url_for('comment.add_star', id=answer.id) }}" class="star">
+                                    赞
+                                </a>{{ answer.star }}
+                            </div>
+
+                            <div class="comment">
+                                <h5>{{ answer.comment|count }}评论</h5>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="info col-md-4">
+                <div class="panel-body">
+                    我的收藏
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

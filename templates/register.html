@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %}
+        <link href="../static/css/signin.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+      <form class="form-signin" method="post" action="{{ url_for('user.register') }}">
+
+        <h2 class="form-signin-heading">注册</h2>
+
+        <label for="username" class="sr-only">username</label>
+        <input name='username' id="inputEmail" class="form-control" placeholder="username" required="" autofocus="">
+
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input name='password' type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+
+        <label for="inputPassword" class="sr-only">email</label>
+        <input name='email' class="form-control" placeholder="email" required="">
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+      </form>
+
+    </div> <!-- /container -->
+
+{% endblock %}

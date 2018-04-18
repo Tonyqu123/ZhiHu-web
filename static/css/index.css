@@ -1,0 +1,31 @@
+.panel-title{
+    background: #ffffff;
+    margin-bottom: 20px;
+    padding:10px ;
+}
+
+.panel-body{
+    background: #ffffff;
+    margin-bottom: 30px;
+}
+
+.grey-body{
+    background: #a0a0a0;
+}
+
+.Avatar{
+    float: left;
+
+}
+
+.img-circle{
+     width: 24px;
+}
+
+.article{
+    margin-bottom: 30px;
+}
+
+.answer{
+margin-bottom: 30px;
+}

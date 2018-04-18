@@ -1,0 +1,78 @@
+Exception on / [GET]
+Traceback (most recent call last):
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\my_zhihu\env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\untitled14\routes\index.py", line 18, in index
+    q_answer = {q: Answer.get_last_answer(q) for q in questions}
+  File "E:\untitled14\routes\index.py", line 18, in <dictcomp>
+    q_answer = {q: Answer.get_last_answer(q) for q in questions}
+  File "E:\my_zhihu\env\lib\site-packages\mongoengine\queryset\queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "E:\my_zhihu\env\lib\site-packages\mongoengine\queryset\queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "E:\my_zhihu\env\lib\site-packages\mongoengine\queryset\base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\cursor.py", line 1169, in next
+    if len(self.__data) or self._refresh():
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\cursor.py", line 1068, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\mongo_client.py", line 1394, in _ensure_session
+    return self.start_session(causal_consistency=False)
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\mongo_client.py", line 1372, in start_session
+    server_session = self._get_server_session()
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\mongo_client.py", line 1380, in _get_server_session
+    return self._topology.get_server_session()
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\topology.py", line 427, in get_server_session
+    None)
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+Exception on / [GET]
+Traceback (most recent call last):
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\my_zhihu\env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\my_zhihu\env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\untitled14\routes\index.py", line 18, in index
+    q_answer = {q: Answer.get_last_answer(q) for q in questions}
+  File "E:\untitled14\routes\index.py", line 18, in <dictcomp>
+    q_answer = {q: Answer.get_last_answer(q) for q in questions}
+  File "E:\my_zhihu\env\lib\site-packages\mongoengine\queryset\queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "E:\my_zhihu\env\lib\site-packages\mongoengine\queryset\queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "E:\my_zhihu\env\lib\site-packages\mongoengine\queryset\base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\cursor.py", line 1169, in next
+    if len(self.__data) or self._refresh():
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\cursor.py", line 1068, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\mongo_client.py", line 1394, in _ensure_session
+    return self.start_session(causal_consistency=False)
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\mongo_client.py", line 1372, in start_session
+    server_session = self._get_server_session()
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\mongo_client.py", line 1380, in _get_server_session
+    return self._topology.get_server_session()
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\topology.py", line 427, in get_server_session
+    None)
+  File "E:\my_zhihu\env\lib\site-packages\pymongo\topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] 由于目标计算机积极拒绝，无法连接。

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="articles col-md-8">
+                <div class="panel-title">
+                    <a href="{{ url_for('question.new',id=session.get('user')) }}">提问</a>
+                </div>
+                <div id='id-question-section' class="blog-post">
+                    {% for article in article_list %}
+                        <div class="panel-body">
+                            {% if answer[article] %}
+
+                                <div class="author-info">
+                                    <div class="Avatar">
+                                        <img class="img-circle" src='{{ answer[article].author.img_url }}'>
+                                    </div>
+                                    <h3> {{ answer[article].author.name }}</h3>
+                                </div>
+                                <a href="{{ url_for('question.article', id=article.id) }}">
+                                    <h1>{{ article.title }}</h1>
+                                </a>
+
+                                <div class="answer">
+                                    <h2>{{ answer[article].content }}</h2>
+                                    <button class="star">赞</button>
+                                    {{ answer[article].star }}
+                                </div>
+
+                                <div class="comment">
+                                    <div class="article-id">{{ answer[article].id }}</div>
+                                    <button id='id-button-comment' class="btn btn-primary" type="button"
+                                            data-toggle="collapse"
+                                            data-target="#collapseExample" aria-expanded="false"
+                                            aria-controls="collapseExample">
+                                        {{ answer[article].comment|count }} 个评论
+                                    </button>
+                                    <div class="collapse" id="collapseExample">
+                                        <div class="well">
+
+                                        </div>
+                                        <input id="id-input-comment">
+                                        <button id="id-button-addComment">添加评论</button>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <a href="{{ url_for('question.article', id=article.id) }}">
+                                    <h1>{{ article.title }}</h1></a>
+                                <span>{{ article.id }}</span><br>
+                                <button class="class-button-care">关注问题</button><span>0 个回答</span>
+                            {% endif %}
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+                <div class="panel-body">
+                    <button id="id-button-more">查看更多</button>
+                </div>
+            </div>
+
+            <div class="info col-md-4">
+                <div class="panel-body">
+                    <ul>
+                        <li href="">我的收藏</li>
+                        <a href="{{ url_for('user.following') }}">我的关注</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="../static/js/utils.js"></script>
+
+    <script src="../static/js/ajax.js"></script>
+    <script src="../static/js/api.js"></script>
+{% endblock %}
+
+

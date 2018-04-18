@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="articles col-md-8">
+            {% for q in questions %}
+                <div class="panel-body">
+                    <a href="{{ url_for('question.article', id=q.id) }}">{{ q.title }}</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="info col-md-4">
+            <div class="panel-body">
+                <ul>
+                    <li href="">我的收藏</li>
+                    <a href="{{ url_for('user.following') }}">我的关注</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
